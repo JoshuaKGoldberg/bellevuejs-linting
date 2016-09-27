@@ -1,0 +1,54 @@
+# Advancing TSLint Usage
+
+Any talk on TSLint today would be incomplete without mentioning the true power of the TypeScript AST.
+
+Does anybody remember Promises?
+
+## Promises
+
+> A Promise represents a unit of work that may be completed asynchronously.
+
+For example:
+
+```typescript
+$.get("/api")
+    .then(result => console.log("Got", result));
+
+// or
+
+let promise = $.get("/api");
+promise.then(result => console.log("Got", result));
+```
+
+One common bad thing people do with Promises is the "fire and forget" pattern (or, as I call it, mistake).
+It's a real bad thing to start a Promise and not react to it being finished - this lets random asynchronous calls float around through your code without anybody controlling them.
+
+You particularly don't want floating Promises with tests: if a Promise from test A waits to error until after test B has started, you'll start getting nondeterministic test failures that take forever to debug.
+
+*(insert angry baby picture)*
+
+## Linting Promises
+
+Any person or group of people faced with this kind of "we're doing it wrong!" problem should take at least a few steps to correct it.
+
+1. **Educate** how and why something is a problem
+2. **Fix** any instances of it in existing code
+3. **Prevent** it from happening in the future
+
+Linting helps with all of them.
+Let's make a rule that works on preventing the floating Promises problem by ensuring all Promises are stored in variables.
+
+*(This doesn't completely solve the problem, but it's a great way to limit it.)*
+
+### Basic Setup
+
+I love Gulp so I've made a basic setup with `build`, `lint`, and `watch` tasks in this folder.
+
+```
+cd "5. Advanced TSLint Rule"
+npm install -g gulp
+npm install
+gulp watch
+```
+
+
