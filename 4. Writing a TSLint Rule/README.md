@@ -84,7 +84,7 @@ So, going over the whole shebang:
 * That walker is a `NoImportsWalker`, which has logic for the `ts.ImportDeclaration` type
 * Whenever the walker is given an import node, it complains
 
-*(insert White Walker image here)*
+![Lint Walkers](https://raw.githubusercontent.com/JoshuaKGoldberg/tslint-bellevuejs/master/4.%20Writing%20a%20TSLint%20Rule/Lint%20Walkers.png)
 
 I've included the rule file as `noImportsRule.ts` here and made a small `tslint.json`:
 
