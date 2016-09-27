@@ -8,7 +8,5 @@ We'll discuss JSLint, TSLint, the rules you should enable to best protect your a
 
 1. What is Linting?
 2. Why Lint?
-3. Basic ESLint Usage
-4. Basic TSLint Usage
-5. Common Rules & Why
-6. Writing a TSLint Rule
+3. Basic Usage
+4. Writing a TSLint Rule

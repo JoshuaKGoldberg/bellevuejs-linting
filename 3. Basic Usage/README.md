@@ -1,6 +1,8 @@
-# Basic ESLint Usage
+# Basic Usage
 
-ESLint is written in JavaScript and most commonly used via npm.
+ESLint and TSLint are written in JavaScript and most commonly used via npm.
+
+We'll experiment with ESLint, since the two are very similar.
 
 ```
 npm install -g eslint
