@@ -124,5 +124,6 @@ Consistently styled codebases facilitate faster reading and fewer *"how should I
 
 Cleaning your darn code up and forcing it to adhere to a set of standards gives smoothes the roughness out.
 It formalizes the your code into a standard presentation of ideas, such that reading any part gives the user the same experience as any other.
+Devs no longer have to struggle (actively or passively) to wrap their heads around how code is work, or switch their mental model to some new way of scanning every other file.
 
 ...and so help me God if one more person tries to blather on about how *c*amel*C*ase isn't inherently worse than *P*ascal*C*ase I will literally explode.
