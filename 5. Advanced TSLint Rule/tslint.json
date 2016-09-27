@@ -2,5 +2,6 @@
     "rules": {
         "no-floating-promises": true
     },
-    "rulesDirectory": "./rules"
+    "rulesDirectory": "./rules",
+    "typeCheck": true
 }

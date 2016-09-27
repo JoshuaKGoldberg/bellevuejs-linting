@@ -1,0 +1,73 @@
+[13:54:47] Using gulpfile C:\Code\bellevuejs-linting\5. Advanced TSLint Rule\gulpfile.js
+[13:54:47] Starting 'default'...
+[13:54:47] Starting 'build'...
+[13:54:51] Finished 'build' after 3.86 s
+[13:54:51] Starting 'lint'...
+Checking 
+
+// Error case A: floating Promise in the body
+runner.doWork()
+
+
+---
+
+ NodeObject {
+  pos: 127,
+  end: 194,
+  flags: 0,
+  parent: 
+   SourceFileObject {
+     pos: 0,
+     end: 196,
+     flags: 0,
+     parent: undefined,
+     kind: 256,
+     text: '/// <reference path="typings/runner.d.ts" />\r\n/// <reference path="typings/es6-promise.d.ts" />\r\n\r\nconst runner = new Runner();\r\n\r\n// Error case A: floating Promise in the body\r\nrunner.doWork();\r\n',
+     bindDiagnostics: [],
+     languageVersion: 1,
+     fileName: 'index.ts',
+     languageVariant: 0,
+     isDeclarationFile: false,
+     scriptKind: 3,
+     hasNoDefaultLib: false,
+     referencedFiles: [ [Object], [Object] ],
+     typeReferenceDirectives: [],
+     amdDependencies: [],
+     moduleName: undefined,
+     statements: [ [Object], [Circular], pos: 0, end: 194 ],
+     endOfFileToken: TokenObject { pos: 194, end: 196, flags: 0, parent: [Circular], kind: 1 },
+     externalModuleIndicator: undefined,
+     nodeCount: 14,
+     identifierCount: 4,
+     identifiers: { runner: 'runner', Runner: 'Runner', doWork: 'doWork' },
+     parseDiagnostics: [],
+     path: 'c:/code/bellevuejs-linting/5. advanced tslint rule/index.ts',
+     imports: [],
+     moduleAugmentations: [],
+     resolvedModules: undefined,
+     locals: { runner: [Object] },
+     symbolCount: 1,
+     classifiableNames: {} },
+  kind: 202,
+  expression: 
+   NodeObject {
+     pos: 127,
+     end: 193,
+     flags: 0,
+     parent: [Circular],
+     kind: 174,
+     expression: 
+      NodeObject {
+        pos: 127,
+        end: 191,
+        flags: 0,
+        parent: [Circular],
+        kind: 172,
+        expression: [Object],
+        name: [Object],
+        flowNode: [Object],
+        id: 20202 },
+     arguments: [ pos: 192, end: 192 ],
+     id: 20198 } }
+[13:54:53] Finished 'lint' after 1.42 s
+[13:54:53] Finished 'default' after 5.28 s

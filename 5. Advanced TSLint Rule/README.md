@@ -51,4 +51,8 @@ npm install
 gulp watch
 ```
 
+The rule we're developing is located at `rules/noFloatingPromisesRule.ts`.
+You might notice that it extends a different class and has a few different things: that's because it specifically uses type checkins APIs, which is a special kind of rule.
+
+I based this off a pre-packaged type-aware rule from tslint, [no-for-in-array](https://github.com/palantir/tslint/blob/master/src/rules/noForInArrayRule.ts).
 

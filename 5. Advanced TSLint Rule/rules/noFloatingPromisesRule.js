@@ -10,12 +10,12 @@ var Rule = (function (_super) {
     function Rule() {
         _super.apply(this, arguments);
     }
-    Rule.prototype.apply = function (sourceFile) {
-        return this.applyWithWalker(new NoImportsWalker(sourceFile, this.getOptions()));
+    Rule.prototype.applyWithProgram = function (sourceFile, program) {
+        return this.applyWithWalker(new NoImportsWalker(sourceFile, this.getOptions(), program));
     };
     Rule.FAILURE_STRING = "import statement forbidden";
     return Rule;
-}(Lint.Rules.AbstractRule));
+}(Lint.Rules.TypedRule));
 exports.Rule = Rule;
 // The walker takes care of all the work.
 var NoImportsWalker = (function (_super) {
@@ -23,11 +23,51 @@ var NoImportsWalker = (function (_super) {
     function NoImportsWalker() {
         _super.apply(this, arguments);
     }
-    NoImportsWalker.prototype.visitImportDeclaration = function (node) {
-        // create a failure at the current position
-        this.addFailure(this.createFailure(node.getStart(), node.getWidth(), Rule.FAILURE_STRING));
-        // call the base version of this visitor to actually parse this node
-        _super.prototype.visitImportDeclaration.call(this, node);
+    /**
+     * Visits a "call"" expression.
+     *
+     * @remarks I figured out this is the right method to use by looking at
+     *          the AST node for `object.method()` and seeing it was a
+     *          `CallExpression` node, then searching for "callExpression"
+     *          in syntaxWalker.d.ts (under tslint's declaration files).
+     */
+    NoImportsWalker.prototype.visitCallExpression = function (node) {
+        if (node.getSourceFile().fileName !== "index.ts") {
+            return;
+        }
+        // TS' TypeChecker object retrieves types for nodes
+        var typeChecker = this.getTypeChecker();
+        var type = typeChecker.getTypeAtLocation(node);
+        // We only care about "Promise" symbols, where symbol is what "type" a node is
+        // In this case, the node is the call expression, so the type is what it returns
+        var symbolName = type.symbol.name;
+        if (symbolName !== "Promise") {
+            return;
+        }
+        console.log("Checking", node.getFullText());
+        console.log("\n\n---\n\n", node.parent);
     };
     return NoImportsWalker;
-}(Lint.RuleWalker));
+}(Lint.ProgramAwareRuleWalker));
+/*
+/// <reference path="typings/runner.d.ts" />
+/// <reference path="typings/es6-promise.d.ts" />
+
+const runner = new Runner();
+
+// Error case A: floating Promise in the body
+runner.doWork();
+
+// Error case B: floating Promise in some function
+(() => {
+    runner.doWork();
+})();
+
+// Happy case A: captured Promise in the body
+const work = runner.doWork();
+
+// Happy case B: captured Promise in some function
+(() => {
+    const work = runner.doWork();
+})();
+*/
