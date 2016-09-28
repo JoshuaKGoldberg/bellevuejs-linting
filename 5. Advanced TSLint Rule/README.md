@@ -59,3 +59,8 @@ I copied code off a pre-packaged type-aware rule from tslint, [no-for-in-array](
 ```
 index.ts[7, 1]: Promises must be assigned to variables
 ```
+
+### Type Checking Caveats
+
+TSLint's type checking features are both new and scary; most of their rules are older and don't use them (or need to).
+You can look through their list of rules at http://palantir.github.io/tslint/rules/.
