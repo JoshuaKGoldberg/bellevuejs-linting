@@ -3,5 +3,8 @@
 
 const runner = new Runner();
 
-// Error case A: floating Promise in the body
+// Error case: floating Promise
 runner.doWork();
+
+// Happy case: captured Promise
+const work = runner.doWork();
