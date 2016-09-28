@@ -2,7 +2,8 @@
 
 ESLint and TSLint are written in JavaScript and most commonly used via npm.
 
-We'll experiment with ESLint, since the two are very similar.
+We'll experiment with ESLint first.
+Note that ESLint and TSLint are very similar and get installed/configured/run in very similar (often the same) ways.
 
 ```
 npm install -g eslint
@@ -16,6 +17,7 @@ It provides a utility to generate one with recommended defaults.
 I've gone ahead and added on to the repo, using the following preferences in Windows:
 
 ```
+cd "3. Basic Usage"
 eslint --init
 ```
 
@@ -39,7 +41,7 @@ I actually had to modify the improper `return` so that ESLint would even run on 
 
 
 ```
-eslint "3. Basic ESLint Usage\errors.js"
+eslint errors.js
 
    1:10  error  'db' is defined but never used                    no-unused-vars
    3:20  error  'minA' is defined but never used                  no-unused-vars
@@ -51,7 +53,6 @@ eslint "3. Basic ESLint Usage\errors.js"
   26:16  error  'i' is not defined                                no-undef
   26:35  error  'i' is not defined                                no-undef
   33:6   error  Missing semicolon                                 semi
-  36:1   error  'module' is not defined                           no-undef
   40:9   error  Unexpected console statement                      no-console
   42:9   error  Unexpected console statement                      no-console
   44:2   error  Missing semicolon                                 semi

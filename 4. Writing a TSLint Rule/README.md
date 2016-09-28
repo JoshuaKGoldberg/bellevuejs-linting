@@ -99,14 +99,11 @@ I've included the rule file as `noImportsRule.ts` here and made a small `tslint.
 Since the rule's compiled JavaScript requires the TSLint Node module, which requires TypeScript, install those first.
 
 ```
+cd "4. Writing a TSLint Rule"
 npm install typescript tslint
-tslint --rules-dir "4. Writing a TSLint Rule" "4. Writing a TSLint Rule\sample.ts"
-```
+tslint --rules-dir . sample.ts
 
-...and the result:
-
-```
-4. Writing a TSLint Rule/sample.ts[1, 1]: import statement forbidden
+sample.ts[1, 1]: import statement forbidden
 ```
 
 Nice.

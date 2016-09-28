@@ -38,7 +38,7 @@ Let's make a rule that works on preventing the floating Promises problem by ensu
 
 *(This doesn't completely solve the problem, but it's a great way to limit it.)*
 
-### Basic Setup
+### Setup
 
 I love Gulp so I've made a basic setup with `build`, `lint`, and `watch` tasks in this folder.
 
@@ -58,8 +58,14 @@ I copied code off a pre-packaged type-aware rule from tslint, [no-for-in-array](
 index.ts[7, 1]: Promises must be assigned to variables
 ```
 
+Yippee!
+
+By the way, a Sway team member has an issue open on Microsoft's contributed TSLint rules (we make a bunch of them) to implement a full version of this.
+https://github.com/Microsoft/tslint-microsoft-contrib/issues/174
+
+I will buy you a full Can Am pizza if you improve this rule and submit it to the repository.
+
 ### Type Checking Caveats
 
 TSLint's type checking features are both new and scary; most of their rules are older and don't use them (or need to).
 You can look through their list of rules at http://palantir.github.io/tslint/rules/.
-in

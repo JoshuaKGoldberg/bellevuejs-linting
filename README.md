@@ -10,3 +10,4 @@ We'll discuss JSLint, TSLint, the rules you should enable to best protect your a
 2. Why Lint?
 3. Basic Usage
 4. Writing a TSLint Rule
+5. Advanced TSLint Rule
