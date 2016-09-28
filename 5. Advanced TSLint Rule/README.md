@@ -25,8 +25,6 @@ It's a real bad thing to start a Promise and not react to it being finished - th
 
 You particularly don't want floating Promises with tests: if a Promise from test A waits to error until after test B has started, you'll start getting nondeterministic test failures that take forever to debug.
 
-*(insert angry baby picture)*
-
 ## Linting Promises
 
 Any person or group of people faced with this kind of "we're doing it wrong!" problem should take at least a few steps to correct it.
@@ -64,3 +62,4 @@ index.ts[7, 1]: Promises must be assigned to variables
 
 TSLint's type checking features are both new and scary; most of their rules are older and don't use them (or need to).
 You can look through their list of rules at http://palantir.github.io/tslint/rules/.
+in
